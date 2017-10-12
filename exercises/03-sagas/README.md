@@ -32,6 +32,8 @@ For more info, please see [the instructions for running the exercise solutions](
 
 At the moment we gather all successfully paid orders and the only option we have is to process them in batches. Business is growing rapidly and we would like to process orders as soon as possible, not just at predefined intervals.
 
+Note: This is a hypothetical case. From experience we've seen a lot of developers implement batch processes to verify a certain state in the database. Sagas are a solution to batch processes. If you would like to know more, you can [read our blogpost on this](https://particular.net/blog/death-to-the-batch-job) at a later time.
+
 ## Issues
 
 - After the handlers for both events store data in the database, we need a batch job to gather all successfully paid orders. It is impossible to run this batch job continuously throughout the day, as this will largely increase database locks and interfere with other operations happening in the system. We want to process orders near real-time.
@@ -264,3 +266,9 @@ Create a new saga in the Finance bounded context which first tries to process th
 Sagas are not supposed to retrieve data from a data store or call out to external systems. They should execute tasks using [the request/response pattern](http://docs.particular.net/nservicebus/sagas/#sagas-and-request-response). This means that, rather than processing the payment directly, the saga should send a message to another handler in the Finance bounded context to process the payment on its behalf. Whether it fails or succeeds, that handler should [reply to the saga](http://docs.particular.net/nservicebus/messaging/reply-to-a-message) with the status of the payment. If the payment failed, the saga should send another message to process the payment, but this time to the reliable, but expensive, provider.
 
 The solution should end up with at least two new handlers and a new saga. Depending on your solution, you may end up with more.
+
+## Conclusion
+
+Hopefully this exercise has demonstrated how to use sagas to orchestrate business processes.
+
+If you'd like to discuss this more, please don't hesitate to drop us a line in our [community discussion forum](https://discuss.particular.net/).
