@@ -128,6 +128,6 @@ Update the `orders` list template (`app\branding\orders\ordersView.html`) to dis
 
 ## Conclusion
 
-In this exercise we've seen how to combine data from various autonomous services into a user interface, in which the end-user is unaware of the architecture behind it.
+In this exercise we've seen how to combine data from various autonomous services into a single user interface.
 
 If you'd like to discuss this more, please don't hesitate to drop us a line in our [community discussion forum](https://discuss.particular.net/).

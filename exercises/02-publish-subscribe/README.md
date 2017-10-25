@@ -411,6 +411,6 @@ We now have a dashboard that can inform us when an endpoint is  or messages fail
 
 ## Conclusion
 
-Hopefully this exercise has demonstrated how you can use the publish/subscribe messaging pattern to decouple services.
+This exercise has demonstrated how you can use the Publish-Subscribe messaging pattern to decouple services.
 
 If you'd like to discuss this more, please don't hesitate to drop us a line in our [community discussion forum](https://discuss.particular.net/).

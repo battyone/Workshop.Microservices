@@ -428,6 +428,6 @@ Consider the following items and perhaps discuss them with your colleagues:
 
 ## Conclusion
 
-Hopefully this exercise has demonstrated how to act on integration issues, where you have the same issue as in the user-interface where data from multiple services need to be brought together. We also saw again how powerful sagas can be to orchestrate business processes.
+This exercise has demonstrated how to address integration issues where, as with the UI, data from multiple services needs to be combined in order to perform some action. We also saw, again, how powerful sagas can be in orchestrating business processes.
 
 If you'd like to discuss this more, please don't hesitate to drop us a line in our [community discussion forum](https://discuss.particular.net/).
