@@ -1,6 +1,7 @@
 using System;
 using System.Configuration;
 using System.IO;
+using Divergent.Sales.Messages.Events;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Persistence;
@@ -37,6 +38,8 @@ namespace Divergent.Finance.Config
             var routing = endpointConfiguration.UseTransport<MsmqTransport>()
                 .ConnectionString("deadLetter=false;journal=false")
                 .Routing();
+
+            routing.RegisterPublisher(typeof(OrderSubmittedEvent), "Divergent.Sales");
 
             endpointConfiguration.UsePersistence<NHibernatePersistence>()
                 .ConnectionString(ConfigurationManager.ConnectionStrings["Divergent.Finance"].ToString());
