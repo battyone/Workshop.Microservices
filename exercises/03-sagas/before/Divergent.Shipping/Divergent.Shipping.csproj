@@ -103,8 +103,7 @@
   <ItemGroup>
     <Compile Include="Config\ContainerSetup.cs" />
     <Compile Include="Config\EndpointConfig.cs" />
-    <Compile Include="Handlers\OrderSubmittedHandler.cs" />
-    <Compile Include="Handlers\PaymentSucceededHandler.cs" />
+    <Compile Include="Sagas\ShippingSaga.cs" />
     <None Include="App.config" />
     <None Include="nservicebus.host.exe.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
