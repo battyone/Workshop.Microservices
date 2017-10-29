@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Divergent.Finance.Messages;
 using Divergent.Finance.Messages.Events;
 using Divergent.Finance.PaymentClient;
 using NServiceBus;
@@ -7,17 +8,17 @@ using Divergent.Finance.Messages.Commands;
 
 namespace Divergent.Finance.Handlers
 {
-    class InitiatePaymentProcessCommandHandler : IHandleMessages<InitiatePaymentProcessCommand>
+    class ProcessPaymentMessageHandler : IHandleMessages<ProcessPaymentMessage>
     {
         private static readonly ILog Log = LogManager.GetLogger<InitiatePaymentProcessCommand>();
         private readonly ReliablePaymentClient _reliablePaymentClient;
 
-        public InitiatePaymentProcessCommandHandler(ReliablePaymentClient reliablePaymentClient)
+        public ProcessPaymentMessageHandler(ReliablePaymentClient reliablePaymentClient)
         {
             _reliablePaymentClient = reliablePaymentClient;
         }
 
-        public async Task Handle(InitiatePaymentProcessCommand message, IMessageHandlerContext context)
+        public async Task Handle(ProcessPaymentMessage message, IMessageHandlerContext context)
         {
             Log.Info("Handle InitiatePaymentProcessCommand");
 

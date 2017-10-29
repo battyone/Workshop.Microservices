@@ -6,6 +6,7 @@ using LogManager = Common.Logging.LogManager;
 using System.IO;
 using NServiceBus.Persistence;
 using System.Configuration;
+using Divergent.Finance.Messages.Events;
 using Divergent.Sales.Messages.Events;
 
 namespace Divergent.Customers.Config
@@ -40,6 +41,7 @@ namespace Divergent.Customers.Config
                 .Routing();
 
             routing.RegisterPublisher(typeof(OrderSubmittedEvent), "Divergent.Sales");
+            routing.RegisterPublisher(typeof(PaymentSucceededEvent), "Divergent.Finance");
 
             endpointConfiguration.UsePersistence<NHibernatePersistence>()
                 .ConnectionString(ConfigurationManager.ConnectionStrings["Divergent.Customers"].ToString());
